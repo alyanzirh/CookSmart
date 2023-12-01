@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "489111918054",
+    "firebase_url": "https://cooksmart-testv2-default-rtdb.firebaseio.com",
+    "project_id": "cooksmart-testv2",
+    "storage_bucket": "cooksmart-testv2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:489111918054:android:99308e3bcdfd6ace513227",
+        "android_client_info": {
+          "package_name": "com.example.cooksmart_v2"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAaK6vaOlc8BPPBjDMttuWu7vzt8tEwRMk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
