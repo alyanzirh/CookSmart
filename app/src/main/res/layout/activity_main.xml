@@ -1,30 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <androidx.cardview.widget.CardView
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="132dp"
-        android:layout_marginEnd="16dp"
-        app:cardCornerRadius="30dp"
-        app:cardElevation="20dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:layout_height="wrap_content">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:background="@drawable/custom_round_background"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:padding="10dp"
+            android:gravity="center"
             android:orientation="vertical"
-            android:padding="24dp">
+            app:layout_constraintTop_toTopOf="parent" >
 
             <TextView
                 android:layout_width="match_parent"
@@ -36,7 +31,7 @@
                 android:textColor="@color/orangie" />
 
             <EditText
-                android:id="@+id/edEmail"
+                android:id="@+id/fullname"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_margin="15dp"
@@ -44,11 +39,61 @@
                 android:drawableStart="@drawable/ic_person_24"
                 android:drawablePadding="8dp"
                 android:padding="8dp"
+                android:hint="Full Name"
+                android:inputType="text"
+                android:textColor="@color/black" />
+
+            <EditText
+                android:id="@+id/edEmail"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_margin="15dp"
+                android:background="@drawable/custom_round_background"
+                android:drawableStart="@drawable/ic_email_24"
+                android:drawablePadding="8dp"
+                android:padding="8dp"
                 android:hint="Email"
                 android:inputType="textEmailAddress"
-                android:textColor="@color/black"
+                android:textColor="@color/black" />
 
-                />
+            <EditText
+                android:id="@+id/dietType"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_margin="15dp"
+                android:background="@drawable/custom_round_background"
+                android:drawableStart="@drawable/ic_local_dining_24"
+                android:drawablePadding="8dp"
+                android:padding="8dp"
+                android:hint="Preferred Type of Diet"
+                android:inputType="text"
+                android:textColor="@color/black" />
+
+            <EditText
+                android:id="@+id/height"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_margin="15dp"
+                android:background="@drawable/custom_round_background"
+                android:drawableStart="@drawable/ic_height_24"
+                android:drawablePadding="8dp"
+                android:padding="8dp"
+                android:hint="Height"
+                android:inputType="number"
+                android:textColor="@color/black" />
+
+            <EditText
+                android:id="@+id/weight"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_margin="15dp"
+                android:background="@drawable/custom_round_background"
+                android:drawableStart="@drawable/ic_monitor_weight_24"
+                android:drawablePadding="8dp"
+                android:padding="8dp"
+                android:hint="Weight"
+                android:inputType="number"
+                android:textColor="@color/black" />
 
             <EditText
                 android:id="@+id/edPassword"
@@ -63,6 +108,19 @@
                 android:inputType="textPassword"
                 android:textColor="@color/black" />
 
+            <EditText
+                android:id="@+id/confirmPwd"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_margin="15dp"
+                android:background="@drawable/custom_round_background"
+                android:drawableStart="@drawable/ic_lock_24"
+                android:drawablePadding="8dp"
+                android:padding="8dp"
+                android:hint="Confirm Password"
+                android:inputType="textPassword"
+                android:textColor="@color/black" />
+
             <Button
                 android:id="@+id/btnSignUp"
                 android:layout_width="match_parent"
@@ -73,18 +131,32 @@
                 app:backgroundTint="@color/orangie"
                 app:cornerRadius="30dp" />
 
-            <TextView
-                android:id="@+id/txtSignIn"
-                android:layout_width="match_parent"
+            <LinearLayout
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="15dp"
-                android:text="Already Registered? Sign In"
-                android:textAlignment="center"
-                android:textSize="18sp" />
+                android:orientation="horizontal"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Already Registered? "
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/txtSignIn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Sign In"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
         </LinearLayout>
 
-    </androidx.cardview.widget.CardView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
-
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

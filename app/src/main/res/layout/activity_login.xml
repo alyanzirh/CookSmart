@@ -46,7 +46,7 @@
                 android:drawablePadding="8dp"
                 android:padding="8dp"
                 android:hint="Email"
-                android:inputType="textEmailAddress"
+                android:inputType="text"
                 android:textColor="@color/black" />
 
             <EditText
@@ -72,15 +72,29 @@
                 app:backgroundTint="@color/orangie"
                 app:cornerRadius="30dp" />
 
-
-            <TextView
-                android:id="@+id/txtRegister"
-                android:layout_width="match_parent"
+            <LinearLayout
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="20dp"
-                android:text="Don't have an account? Sign Up"
-                android:textAlignment="center"
-                android:textSize="18sp" />
+                android:orientation="horizontal"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Don't have an account? "
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/txtRegister"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Sign Up"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 

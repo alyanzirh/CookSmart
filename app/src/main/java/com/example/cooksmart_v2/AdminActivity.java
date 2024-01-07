@@ -14,14 +14,13 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 
-public class UserActivity extends AppCompatActivity {
+public class AdminActivity extends AppCompatActivity {
 
     DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReferenceFromUrl("https://cooksmart-testv2-default-rtdb.firebaseio.com/");
 
-    LinearLayout mealPlanner, manageProfile, btnLogOut;
-    TextView txtUser;
+    LinearLayout manageMenu, btnLogOut, manageProfile;
+    TextView txtUser, txtMessage;
     FirebaseAuth firebaseAuth;
     FirebaseUser user;
     private FirebaseAuth.AuthStateListener authStateListener;
@@ -29,11 +28,12 @@ public class UserActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_user);
+        setContentView(R.layout.activity_admin);
         firebaseAuth = FirebaseAuth.getInstance();
-        btnLogOut = (LinearLayout) findViewById(R.id.btnLogOut);
+        manageMenu = (LinearLayout) findViewById(R.id.manageMenu);
         manageProfile = (LinearLayout) findViewById(R.id.manageProfile);
-        mealPlanner = (LinearLayout) findViewById(R.id.mealPlanner);
+        btnLogOut = (LinearLayout) findViewById(R.id.btnLogOut);
+        txtMessage = (TextView) findViewById(R.id.txtMessage);
         txtUser = (TextView) findViewById(R.id.txtUser);
         user = firebaseAuth.getCurrentUser();
 
@@ -43,9 +43,23 @@ public class UserActivity extends AppCompatActivity {
             finish();
         }
         else {
-            Log.d("User Page", "EXECUTED");
+            Log.d("Admin Page", "EXECUTED");
+            // txtMessage.setText("HELLO ADMIN");
             txtUser.setText(user.getEmail());
         }
+
+        manageMenu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                //Intent I = new Intent(UserActivity.this, LoginActivity.class);
+                //startActivity(I);
+                Intent intent = new Intent(getApplicationContext(), ManageRecipe.class);
+                startActivity(intent);
+                finish();
+
+            }
+        });
 
         manageProfile.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -53,20 +67,7 @@ public class UserActivity extends AppCompatActivity {
 
                 //Intent I = new Intent(UserActivity.this, LoginActivity.class);
                 //startActivity(I);
-                Intent intent = new Intent(getApplicationContext(), UserProfile.class);
-                startActivity(intent);
-                finish();
-
-            }
-        });
-
-        mealPlanner.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                //Intent I = new Intent(UserActivity.this, LoginActivity.class);
-                //startActivity(I);
-                Intent intent = new Intent(getApplicationContext(), weekCalendar.class);
+                Intent intent = new Intent(getApplicationContext(), AdminProfile.class);
                 startActivity(intent);
                 finish();
 

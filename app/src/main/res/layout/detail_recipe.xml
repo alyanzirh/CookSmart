@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBackground"
+    tools:context=".DetailRecipe" >
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@color/colorBackground"
+        tools:context=".DetailRecipe" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/detailTitle"
+            android:text="Title"
+            android:layout_marginTop="14dp"
+            android:textSize="24sp"
+            android:layout_gravity="center"
+            android:layout_marginBottom="12dp"
+            android:textColor="@color/orangie"/>
+
+        <ImageView
+            android:layout_width="400dp"
+            android:layout_height="200dp"
+            android:id="@+id/detailImage"
+            android:padding="8dp"
+            android:layout_gravity="center"
+            android:src="@drawable/uploadimg"
+            android:scaleType="fitXY"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:padding="20dp"
+            android:text="Cooking Time"
+            android:layout_gravity="center"
+            android:id="@+id/cookTime"
+            android:textSize="18sp"
+            android:textColor="@color/orangie"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:padding="20dp"
+            android:text="Calories"
+            android:layout_gravity="center"
+            android:id="@+id/detailCals"
+            android:textSize="18sp"
+            android:textColor="@color/orangie"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:padding="20dp"
+            android:text="per Person"
+            android:layout_gravity="center"
+            android:id="@+id/detailPerson"
+            android:textSize="18sp"
+            android:textColor="@color/orangie"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:padding="20dp"
+            android:text="Language"
+            android:layout_gravity="center"
+            android:id="@+id/detailLang"
+            android:textSize="18sp"
+            android:textColor="@color/orangie"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:padding="20dp"
+            android:text="Ingredient"
+            android:layout_gravity="center"
+            android:id="@+id/detailIng"
+            android:textSize="18sp"
+            android:textColor="@color/orangie"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:padding="20dp"
+            android:text="Direction"
+            android:layout_gravity="center"
+            android:id="@+id/detailDir"
+            android:textSize="18sp"
+            android:textColor="@color/orangie"/>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.github.clans.fab.FloatingActionMenu
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentEnd="true"
+                app:menu_fab_size="normal"
+                android:layout_marginBottom="20dp"
+                android:layout_marginEnd="20dp"
+                app:menu_colorPressed="@color/orangie"
+                app:menu_colorNormal="@color/orangie"
+                app:menu_icon="@drawable/ic_baseline_format_list_bulleted_24"
+                app:menu_openDirection="up"
+                app:menu_showShadow="true">
+
+                <com.github.clans.fab.FloatingActionButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/editButton"
+                    android:src="@drawable/ic_baseline_edit_24"
+                    app:fab_showShadow="true"
+                    app:fab_colorNormal="@color/green"
+                    app:fab_size="mini"/>
+
+                <com.github.clans.fab.FloatingActionButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/deleteButton"
+                    android:src="@drawable/ic_baseline_delete_24"
+                    app:fab_showShadow="true"
+                    app:fab_colorNormal="@color/red"
+                    app:fab_size="mini"/>
+
+            </com.github.clans.fab.FloatingActionMenu>
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</ScrollView>
