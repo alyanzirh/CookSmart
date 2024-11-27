@@ -7,9 +7,14 @@ import androidx.appcompat.widget.SearchView;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -28,16 +33,63 @@ public class ListRecipe extends AppCompatActivity {
     List<DataClass> dataList;
     MyAdapter adapter;
     SearchView searchView;
+    ImageView btnBack;
+
+    FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.list_recipe);
+
+        if (user != null) {
+            String userEmail = user.getEmail();
+            if ("nutritionist@cooksmart.com".equals(userEmail)) {
+                // Set content view for nutritionist
+                setContentView(R.layout.list_recipe);
+
+                fab = findViewById(R.id.fab);
+                fab.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Intent intent = new Intent(getApplicationContext(), AddRecipe.class);
+                        startActivity(intent);
+                        finish();
+                    }
+                });
+
+                btnBack = (ImageView) findViewById(R.id.btnBack);
+                btnBack.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Intent intent = new Intent(getApplicationContext(), ManageRecipe.class);
+                        startActivity(intent);
+                        finish();
+                    }
+                });
+            } else {
+                // Set content view for general users
+                setContentView(R.layout.list_recipe_user);
+
+                fab = findViewById(R.id.fab);
+                fab.setVisibility(View.GONE);
+
+                btnBack = (ImageView) findViewById(R.id.btnBack);
+                btnBack.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Intent intent = new Intent(getApplicationContext(), UserRecipeSection.class);
+                        startActivity(intent);
+                        finish();
+                    }
+                });
+            }
+        }
 
         recyclerView = findViewById(R.id.recyclerView);
-        fab = findViewById(R.id.fab);
-        searchView = findViewById(R.id.search);
-        searchView.clearFocus();
+        // searchView = findViewById(R.id.search);
+        // searchView.clearFocus();
+
 
         GridLayoutManager gridLayoutManager = new GridLayoutManager(ListRecipe.this, 1);
         recyclerView.setLayoutManager(gridLayoutManager);
@@ -51,6 +103,7 @@ public class ListRecipe extends AppCompatActivity {
         recyclerView.setAdapter(adapter);
 
         databaseReference = FirebaseDatabase.getInstance().getReference().child("recipes");
+        // databaseReference = FirebaseDatabase.getInstance().getReference().child("users");
         dialog.show();
         eventListener = databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
@@ -60,6 +113,12 @@ public class ListRecipe extends AppCompatActivity {
                     DataClass dataClass = itemSnapshot.getValue(DataClass.class);
                     dataClass.setKey(itemSnapshot.getKey());
                     dataList.add(dataClass);
+
+                    // Check if the recipe has the desired diet type (e.g., Mediterranean)
+                    /* if ("Ketogenic".equals(dataClass.getDietType())) {
+                        dataClass.setKey(itemSnapshot.getKey());
+                        dataList.add(dataClass);
+                    } */
                 }
                 adapter.notifyDataSetChanged();
                 dialog.dismiss();

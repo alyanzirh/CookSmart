@@ -5,8 +5,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorBackground"
-    tools:context=".DetailRecipe" >
+    tools:context=".DetailRecipe">
+
     <LinearLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -14,30 +14,317 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:background="@color/colorBackground"
+        android:background="@drawable/splash_screen"
         tools:context=".DetailRecipe" >
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/layoutHeader"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/header_background"
+            android:padding="10dp"
+            app:layout_constraintTop_toTopOf="parent" >
+
+            <!-- <ImageView
+                android:id="@+id/btnBack"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="15dp"
+                app:tint="@color/white"
+                android:contentDescription="@string/app_name"
+                android:src="@drawable/ic_baseline_arrow_back_24"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" /> -->
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="50dp"
+                android:layout_marginEnd="15dp"
+                android:layout_marginBottom="10dp"
+                android:text="Title"
+                android:id="@id/detailTitle"
+                android:textColor="@color/white"
+                android:textSize="25sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                android:fontFamily="@font/poppins_semibold" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <ImageView
+            android:layout_width="350dp"
+            android:layout_height="200dp"
+            android:id="@+id/detailImage"
+            android:padding="8dp"
+            android:layout_marginTop="22dp"
+            android:layout_gravity="center"
+            android:src="@drawable/uploadimg"
+            android:scaleType="fitXY"/>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/linearLayout"
+                android:orientation="vertical"
+                android:padding="10dp"
+                android:background="@drawable/white_rectangle_background"
+                android:layout_marginStart="24dp"
+                android:layout_marginEnd="24dp"
+                android:layout_marginTop="22dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="8dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginTop="20dp"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/name"
+                        android:layout_weight="1"
+                        android:text="Cooking Time (mins)"
+                        android:textStyle="bold"
+                        android:textColor="@color/orangie"
+                        android:textSize="18sp"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/cookTime"
+                        android:text="cooking time"
+                        android:layout_weight="1"
+                        android:textAlignment="viewEnd"
+                        android:textColor="@color/black"
+                        android:textSize="18sp"/>
+                </LinearLayout>
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_margin="10dp"
+                    android:alpha="0.5"
+                    android:background="@color/orangie"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="10dp"
+                    android:padding="8dp"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/email"
+                        android:layout_weight="1"
+                        android:text="Calories (kCals)"
+                        android:textStyle="bold"
+                        android:textColor="@color/orangie"
+                        android:textSize="18sp"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/detailCals"
+                        android:text="calories"
+                        android:layout_weight="1"
+                        android:textAlignment="viewEnd"
+                        android:textColor="@color/black"
+                        android:textSize="18sp"/>
+                </LinearLayout>
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_margin="10dp"
+                    android:alpha="0.5"
+                    android:background="@color/orangie"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="10dp"
+                    android:padding="8dp"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/serving"
+                        android:layout_weight="1"
+                        android:text="Serving (person)"
+                        android:textStyle="bold"
+                        android:textColor="@color/orangie"
+                        android:textSize="18sp"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/detailPerson"
+                        android:text="person"
+                        android:layout_weight="1"
+                        android:textAlignment="viewEnd"
+                        android:textColor="@color/black"
+                        android:textSize="18sp"/>
+                </LinearLayout>
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_margin="10dp"
+                    android:alpha="0.5"
+                    android:background="@color/orangie"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="10dp"
+                    android:padding="8dp"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/dietType"
+                        android:layout_weight="1"
+                        android:text="Diet Type"
+                        android:textStyle="bold"
+                        android:textColor="@color/orangie"
+                        android:textSize="18sp"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/detailLang"
+                        android:text="diet type"
+                        android:layout_weight="1"
+                        android:textAlignment="viewEnd"
+                        android:textColor="@color/black"
+                        android:textSize="18sp"/>
+                </LinearLayout>
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_margin="10dp"
+                    android:alpha="0.5"
+                    android:background="@color/orangie"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="10dp"
+                    android:padding="8dp"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/ing"
+                        android:layout_weight="1"
+                        android:text="Ingredients"
+                        android:textStyle="bold"
+                        android:textColor="@color/orangie"
+                        android:textSize="18sp"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="10dp"
+                    android:padding="8dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/detailIng"
+                        android:text="ingredients"
+                        android:layout_weight="1"
+                        android:textColor="@color/black"
+                        android:textSize="18sp"/>
+                </LinearLayout>
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_margin="10dp"
+                    android:alpha="0.5"
+                    android:background="@color/orangie"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="10dp"
+                    android:padding="8dp"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/dir"
+                        android:layout_weight="1"
+                        android:text="Directions"
+                        android:textStyle="bold"
+                        android:textColor="@color/orangie"
+                        android:textSize="18sp"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="10dp"
+                    android:padding="8dp"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/detailDir"
+                        android:text="directions"
+                        android:layout_weight="1"
+                        android:textColor="@color/black"
+                        android:textSize="18sp"/>
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <!-- <Button
+                android:layout_width="0dp"
+                android:layout_height="60dp"
+                android:layout_marginTop="22dp"
+                android:id="@+id/editButton"
+                android:gravity="center"
+                android:text="Edit Profile"
+                android:textSize="18sp"
+                app:cornerRadius = "20dp"
+                android:backgroundTint="@color/orangie"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@id/linearLayout"
+                app:layout_constraintStart_toStartOf="@id/linearLayout"
+                app:layout_constraintTop_toBottomOf="@id/linearLayout"/> -->
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/detailTitle"
-            android:text="Title"
+            android:text=""
             android:layout_marginTop="14dp"
             android:textSize="24sp"
             android:layout_gravity="center"
             android:layout_marginBottom="12dp"
             android:textColor="@color/orangie"/>
 
-        <ImageView
-            android:layout_width="400dp"
-            android:layout_height="200dp"
-            android:id="@+id/detailImage"
-            android:padding="8dp"
-            android:layout_gravity="center"
-            android:src="@drawable/uploadimg"
-            android:scaleType="fitXY"/>
-
-        <TextView
+        <!-- <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
@@ -46,9 +333,9 @@
             android:layout_gravity="center"
             android:id="@+id/cookTime"
             android:textSize="18sp"
-            android:textColor="@color/orangie"/>
+            android:textColor="@color/orangie"/> -->
 
-        <TextView
+        <!-- <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
@@ -57,9 +344,9 @@
             android:layout_gravity="center"
             android:id="@+id/detailCals"
             android:textSize="18sp"
-            android:textColor="@color/orangie"/>
+            android:textColor="@color/orangie"/> -->
 
-        <TextView
+        <!-- <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
@@ -68,9 +355,9 @@
             android:layout_gravity="center"
             android:id="@+id/detailPerson"
             android:textSize="18sp"
-            android:textColor="@color/orangie"/>
+            android:textColor="@color/orangie"/> -->
 
-        <TextView
+        <!-- <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
@@ -79,9 +366,9 @@
             android:layout_gravity="center"
             android:id="@+id/detailLang"
             android:textSize="18sp"
-            android:textColor="@color/orangie"/>
+            android:textColor="@color/orangie"/> -->
 
-        <TextView
+        <!-- <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
@@ -90,9 +377,9 @@
             android:layout_gravity="center"
             android:id="@+id/detailIng"
             android:textSize="18sp"
-            android:textColor="@color/orangie"/>
+            android:textColor="@color/orangie"/> -->
 
-        <TextView
+        <!-- <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
@@ -101,7 +388,7 @@
             android:layout_gravity="center"
             android:id="@+id/detailDir"
             android:textSize="18sp"
-            android:textColor="@color/orangie"/>
+            android:textColor="@color/orangie"/> -->
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -110,34 +397,43 @@
             <com.github.clans.fab.FloatingActionMenu
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentBottom="true"
                 android:layout_alignParentEnd="true"
-                app:menu_fab_size="normal"
-                android:layout_marginBottom="20dp"
+                android:layout_alignParentBottom="true"
                 android:layout_marginEnd="20dp"
-                app:menu_colorPressed="@color/orangie"
+                android:layout_marginBottom="20dp"
                 app:menu_colorNormal="@color/orangie"
+                app:menu_colorPressed="@color/orangie"
+                app:menu_fab_size="normal"
                 app:menu_icon="@drawable/ic_baseline_format_list_bulleted_24"
                 app:menu_openDirection="up"
                 app:menu_showShadow="true">
 
                 <com.github.clans.fab.FloatingActionButton
+                    android:id="@+id/editButton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/editButton"
                     android:src="@drawable/ic_baseline_edit_24"
-                    app:fab_showShadow="true"
                     app:fab_colorNormal="@color/green"
-                    app:fab_size="mini"/>
+                    app:fab_showShadow="true"
+                    app:fab_size="mini" />
 
                 <com.github.clans.fab.FloatingActionButton
+                    android:id="@+id/deleteButton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/deleteButton"
                     android:src="@drawable/ic_baseline_delete_24"
-                    app:fab_showShadow="true"
                     app:fab_colorNormal="@color/red"
-                    app:fab_size="mini"/>
+                    app:fab_showShadow="true"
+                    app:fab_size="mini" />
+
+                <com.github.clans.fab.FloatingActionButton
+                    android:id="@+id/favButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_baseline_add_24"
+                    app:fab_colorNormal="@color/green"
+                    app:fab_showShadow="true"
+                    app:fab_size="mini" />
 
             </com.github.clans.fab.FloatingActionMenu>
 

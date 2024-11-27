@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -14,13 +13,12 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 
 public class UserActivity extends AppCompatActivity {
 
     DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReferenceFromUrl("https://cooksmart-testv2-default-rtdb.firebaseio.com/");
 
-    LinearLayout mealPlanner, manageProfile, btnLogOut;
+    LinearLayout mealPlanner, manageProfile, viewRecipe, btnLogOut;
     TextView txtUser;
     FirebaseAuth firebaseAuth;
     FirebaseUser user;
@@ -34,6 +32,7 @@ public class UserActivity extends AppCompatActivity {
         btnLogOut = (LinearLayout) findViewById(R.id.btnLogOut);
         manageProfile = (LinearLayout) findViewById(R.id.manageProfile);
         mealPlanner = (LinearLayout) findViewById(R.id.mealPlanner);
+        viewRecipe = (LinearLayout) findViewById(R.id.viewRecipe);
         txtUser = (TextView) findViewById(R.id.txtUser);
         user = firebaseAuth.getCurrentUser();
 
@@ -60,13 +59,26 @@ public class UserActivity extends AppCompatActivity {
             }
         });
 
+        viewRecipe.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                //Intent I = new Intent(UserActivity.this, LoginActivity.class);
+                //startActivity(I);
+                Intent intent = new Intent(getApplicationContext(), UserRecipeSection.class);
+                startActivity(intent);
+                finish();
+
+            }
+        });
+
         mealPlanner.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
                 //Intent I = new Intent(UserActivity.this, LoginActivity.class);
                 //startActivity(I);
-                Intent intent = new Intent(getApplicationContext(), weekCalendar.class);
+                Intent intent = new Intent(getApplicationContext(), WeekCalendar.class);
                 startActivity(intent);
                 finish();
 

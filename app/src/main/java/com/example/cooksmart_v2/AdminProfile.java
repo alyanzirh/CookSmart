@@ -60,12 +60,12 @@ public class AdminProfile extends AppCompatActivity {
 
         Log.d("ADMIN PROFILE ", "EXECUTED");
 
-        editProfile.setOnClickListener(new View.OnClickListener() {
+        /* editProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 passUserData();
             }
-        });
+        }); */
     }
 
     public void showAllUserData(){

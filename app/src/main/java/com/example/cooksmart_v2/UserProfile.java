@@ -1,6 +1,7 @@
 package com.example.cooksmart_v2;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -22,7 +23,7 @@ import com.google.firebase.database.ValueEventListener;
 
 public class UserProfile extends AppCompatActivity {
 
-    TextView profileName, profileEmail, profilePassword;
+    TextView profileName, profileEmail, profilePassword, userDiet, cals;
     Button editProfile;
     ImageView btnBack;
 
@@ -38,7 +39,9 @@ public class UserProfile extends AppCompatActivity {
         profileName = findViewById(R.id.profileName);
         profileEmail = findViewById(R.id.profileEmail);
         profilePassword = findViewById(R.id.profilePassword);
-        editProfile = findViewById(R.id.editButton);
+        userDiet = findViewById(R.id.userDiet);
+        cals = findViewById(R.id.cals);
+        // editProfile = findViewById(R.id.editButton);
 
         btnBack = (ImageView) findViewById(R.id.btnBack);
 
@@ -60,12 +63,12 @@ public class UserProfile extends AppCompatActivity {
 
         Log.d("USER PROFILE ", "EXECUTED");
 
-        editProfile.setOnClickListener(new View.OnClickListener() {
+        /* editProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 passUserData();
             }
-        });
+        }); */
     }
 
     public void showAllUserData(){
@@ -82,6 +85,13 @@ public class UserProfile extends AppCompatActivity {
         // Check if userEmail is not null
         // if (userEmail != null) {
         Log.d("EXECUTED 2 ", "YES");
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(UserProfile.this);
+        builder.setCancelable(false);
+        builder.setView(R.layout.progress_layout);
+        AlertDialog dialog = builder.create();
+        dialog.show();
+
         // Retrieve user data from Firebase
         databaseReference.child(userId).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -96,15 +106,20 @@ public class UserProfile extends AppCompatActivity {
                     String passwordUser = snapshot.child("signupPassword").getValue(String.class);
                     // String emailUser = snapshot.child("signupEmail").getValue(String.class);
                     // String passwordUser = snapshot.child("signupPassword").getValue(String.class);
+                    String dietUser = snapshot.child("dietType").getValue(String.class);
+                    String calUser = snapshot.child("targetCals").getValue(String.class);
 
                     profileName.setText(nameUser);
                     profileEmail.setText(emailUser);
                     profilePassword.setText(passwordUser);
+                    userDiet.setText(dietUser);
+                    cals.setText(calUser);
 
-                    Log.d("Name: ", nameUser);
+                    /* Log.d("Name: ", nameUser);
                     Log.d("Email: ", emailUser);
-                    Log.d("Password: ", passwordUser);
+                    Log.d("Password: ", passwordUser); */
                 }
+                dialog.dismiss();
             }
 
             @Override

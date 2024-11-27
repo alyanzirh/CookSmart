@@ -25,32 +25,64 @@ public class DataClass {
         return recipeName;
     }
 
+    public void setRecipeName(String recipeName) {
+        this.recipeName = recipeName;
+    }
+
     public String getNumCal() {
         return numCal;
+    }
+
+    public void setNumCal(String numCal) {
+        this.numCal = numCal;
     }
 
     public String getDietType() {
         return dietType;
     }
 
+    public void setDietType(String dietType) {
+        this.dietType = dietType;
+    }
+
     public String getImageUrl() {
         return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
     }
 
     public String getCookTime() {
         return cookTime;
     }
 
+    public void setCookTime(String cookTime) {
+        this.cookTime = cookTime;
+    }
+
     public String getDirections() {
         return directions;
+    }
+
+    public void setDirections(String directions) {
+        this.directions = directions;
     }
 
     public String getIngredients() {
         return ingredients;
     }
 
+    public void setIngredients(String ingredients) {
+        this.ingredients = ingredients;
+    }
+
     public String getMealPerPerson() {
         return mealPerPerson;
+    }
+
+    public void setMealPerPerson(String mealPerPerson) {
+        this.mealPerPerson = mealPerPerson;
     }
 
     public DataClass(String recipeName, String numCal, String dietType, String recipeImg, String cookTime, String mealPerPerson, String directions, String ingredients) {

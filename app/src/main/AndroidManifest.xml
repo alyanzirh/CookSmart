@@ -7,13 +7,42 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/cooksmart_logo"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@drawable/cooksmart_logo"
         android:supportsRtl="true"
         android:theme="@style/Theme.CookSmartv2">
         <activity
-            android:name=".weekCalendar"
+            android:name=".UserListRecipe"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".EditRecipe"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".RecommendedRecipe"
+            android:exported="false" />
+        <activity
+            android:name=".UserRecipeSection"
+            android:exported="false" />
+        <activity
+            android:name=".PlannerRecipeList"
+            android:exported="false" />
+        <activity
+            android:name=".CreateMealPlan"
+            android:exported="false" />
+        <activity
+            android:name=".EventEditActivity"
+            android:exported="false" />
+        <activity
+            android:name=".WeekCalendar"
             android:exported="false" />
         <activity
             android:name=".UserProfile"
@@ -48,6 +77,16 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <!-- <activity
+            android:name=".SplashScreen"
+            android:exported="true"
+            android:theme="@style/SplashScreen">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity> -->
         <activity
             android:name=".MainActivity"
             android:exported="false" />
