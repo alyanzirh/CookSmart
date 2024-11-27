@@ -6,12 +6,14 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.media.Image;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.google.firebase.database.DatabaseReference;
@@ -27,8 +29,9 @@ public class AddRecipe extends AppCompatActivity {
     private static final int PICK_IMAGE_REQUEST = 1;
 
     public EditText recipeName, recipeType, cookTime, numCal, perPerson, ingredients, directions;
-    Button btnAddRecipe, btnSelectImage;
+    Button btnAddRecipe, btnSelectImage, btnCancel;
     Uri imageUri;
+    ImageView imgRecipe;
 
     ActivityResultLauncher<Intent> launcher = registerForActivityResult(
             new ActivityResultContracts.StartActivityForResult(),
@@ -37,6 +40,7 @@ public class AddRecipe extends AppCompatActivity {
                     Intent data = result.getData();
                     if (data != null && data.getData() != null) {
                         imageUri = data.getData();
+                        imgRecipe.setImageURI(imageUri);
                     }
                 }
             }
@@ -54,10 +58,21 @@ public class AddRecipe extends AppCompatActivity {
         perPerson = findViewById(R.id.perPerson);
         ingredients = findViewById(R.id.ingredients);
         directions = findViewById(R.id.directions);
+        btnCancel = findViewById(R.id.btnCancel);
         btnAddRecipe = findViewById(R.id.btnAddRecipe);
-        btnSelectImage = findViewById(R.id.btnSelectImage);
+        // btnSelectImage = findViewById(R.id.btnSelectImage);
+        imgRecipe = findViewById(R.id.imgRecipe);
 
-        btnSelectImage.setOnClickListener(new View.OnClickListener() {
+        btnCancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), ManageRecipe.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+
+        imgRecipe.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // Open the gallery to select an image

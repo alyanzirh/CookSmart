@@ -1,4 +1,15 @@
 <resources>
     <string name="app_name">CookSmart-v2</string>
     <string name="hello">Hello</string>
+
+    <string name="diet_prompt">Choose a diet</string>
+    <string-array name="diet_array">
+        <item>Ketogenic</item>
+        <item>Mediterranean</item>
+    </string-array>
+
+    <string name="diet_info">Types of diets:\n
+        \n1. Ketogenic: An eating plan involves in consumption of low amounts of carbohydrates and high in fat content.\n
+        \n2. Mediterranean: A balanced and good for heart health diet, focusing on high consumption of fruits, vegetables, fish, and olive oil while limiting cheese, meat, and processed foods.\n
+        \n</string>
 </resources>

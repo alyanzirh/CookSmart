@@ -7,9 +7,11 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Patterns;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -26,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
 
     DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReferenceFromUrl("https://cooksmart-testv2-default-rtdb.firebaseio.com/");
 
-    public EditText fullname, signupEmail, dietType, height, weight, signupPassword, confirmPwd;
+    public EditText fullname, signupEmail, dietType, targetCalorie, signupPassword, confirmPwd;
     Button btnSignUp;
     TextView loginRedirectText;
     FirebaseAuth firebaseAuth;
@@ -40,12 +42,25 @@ public class MainActivity extends AppCompatActivity {
         fullname = findViewById(R.id.fullname);
         signupEmail = findViewById(R.id.edEmail);
         dietType = findViewById(R.id.dietType);
-        height = findViewById(R.id.height);
-        weight = findViewById(R.id.weight);
+        // height = findViewById(R.id.height);
+        targetCalorie = findViewById(R.id.weight);
         signupPassword = findViewById(R.id.edPassword);
         confirmPwd = findViewById(R.id.confirmPwd);
         btnSignUp = findViewById(R.id.btnSignUp);
         loginRedirectText = findViewById(R.id.txtSignIn);
+
+        ImageView infoIcon = findViewById(R.id.infoIcon);
+        String dietInfo = getString(R.string.diet_info);
+
+        infoIcon.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View view, MotionEvent motionEvent) {
+                if (motionEvent.getAction() == MotionEvent.ACTION_UP) {
+                    Toast.makeText(MainActivity.this, dietInfo, Toast.LENGTH_LONG).show();
+                }
+                return true;
+            }
+        });
 
         // v1 without Firebase Auth
         /* btnSignUp.setOnClickListener(new View.OnClickListener() {
@@ -124,8 +139,8 @@ public class MainActivity extends AppCompatActivity {
                 String fullnameTxt = fullname.getText().toString();
                 String emailID = signupEmail.getText().toString();
                 String dietTypeTxt = dietType.getText().toString();
-                String heightTxt = height.getText().toString();
-                String weightTxt = weight.getText().toString();
+                // String heightTxt = height.getText().toString();
+                String targetCalorieTxt = targetCalorie.getText().toString();
                 String paswd = signupPassword.getText().toString();
                 String cPwd = confirmPwd.getText().toString();
 
@@ -138,7 +153,7 @@ public class MainActivity extends AppCompatActivity {
 
                 // Check if user fill all the fields
                 if (emailID.isEmpty() || fullnameTxt.isEmpty() || dietTypeTxt.isEmpty() ||
-                        heightTxt.isEmpty() || weightTxt.isEmpty() || paswd.isEmpty()) {
+                        targetCalorieTxt.isEmpty() || paswd.isEmpty()) {
                     Toast.makeText(MainActivity.this, "Please fill in all the fields", Toast.LENGTH_SHORT).show();
                     return;
                 }
@@ -160,8 +175,8 @@ public class MainActivity extends AppCompatActivity {
                                 // Store additional user data
                                 userRef.child("fullname").setValue(fullnameTxt);
                                 userRef.child("dietType").setValue(dietTypeTxt);
-                                userRef.child("height").setValue(heightTxt);
-                                userRef.child("weight").setValue(weightTxt);
+                                // userRef.child("height").setValue(heightTxt);
+                                userRef.child("targetCals").setValue(targetCalorieTxt);
                                 userRef.child("signupPassword").setValue(paswd);
                                 userRef.child("signupEmail").setValue(emailID);
 
