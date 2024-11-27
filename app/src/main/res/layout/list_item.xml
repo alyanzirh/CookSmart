@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+android:layout_width="match_parent"
+android:layout_height="wrap_content"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+android:id="@+id/recCard"
+android:layout_marginStart="12dp"
+android:layout_marginEnd="12dp"
+android:layout_marginHorizontal="10dp"
+android:layout_marginVertical="10dp">
+
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/recImage"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginBottom="10dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/uploadimg"
+        app:shapeAppearanceOverlay="@style/roundedImageViewRounded" />
+
+    <TextView
+        android:id="@+id/name_text_view"
+        android:layout_width="290dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_toEndOf="@id/recImage"
+        android:text="Title"
+        android:textColor="@color/orangie"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/dietType"
+        android:layout_width="140dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/name_text_view"
+        android:layout_marginStart="20dp"
+        android:layout_toEndOf="@id/recImage"
+        android:text="priority"
+        android:textColor="@color/orangie"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/calories_text_view"
+        android:layout_width="140dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/dietType"
+        android:layout_marginStart="20dp"
+        android:layout_marginBottom="12dp"
+        android:layout_toEndOf="@id/recImage"
+        android:maxLines="1"
+        android:text="desc"
+        android:textColor="@color/orangie"
+        android:textSize="14sp" />
+
+    <!-- ImageView for viewing recipe details
+    <ImageView
+        android:id="@+id/deleteRecipe"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_alignBaseline="@id/dietType"
+        android:layout_alignParentEnd="true"
+        app:tint="@color/red"
+        android:src="@drawable/ic_baseline_delete_24" />
+
+    ImageView for deleting the recipe
+    <ImageView
+        android:id="@+id/viewRecipe"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_alignBaseline="@id/dietType"
+        android:layout_toStartOf="@id/deleteRecipe"
+        android:layout_marginStart="5dp"
+        app:tint="@color/green"
+        android:src="@drawable/ic_baseline_eye_24" /> -->
+
+</RelativeLayout>
+
+</androidx.cardview.widget.CardView>
